@@ -1,0 +1,10 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="MouseCamera" preserve="nothing"/>
+		<type fullname="Move" preserve="nothing"/>
+	</assembly>
+	<assembly fullname="Unity.ProBuilder">
+		<type fullname="UnityEngine.ProBuilder.ProBuilderMesh" preserve="nothing"/>
+		<type fullname="UnityEngine.ProBuilder.Shapes.ProBuilderShape" preserve="nothing"/>
+	</assembly>
+</linker>
