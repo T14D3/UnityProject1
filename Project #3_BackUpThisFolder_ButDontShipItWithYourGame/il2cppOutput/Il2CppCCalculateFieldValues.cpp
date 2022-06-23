@@ -26220,6 +26220,15 @@ struct BezierShape_t9A49C67B0C5291266ED964B1253646E4ABFB1CAD  : public MonoBehav
 	ProBuilderMesh_t399C8104C9E88190F91D6D0FC0EA2F7E7FDDF8F5* ___m_Mesh_11;
 };
 
+// CalcObject
+struct CalcObject_tCD2E6B9C3A73855D749CED3B963242875EAB5AED  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// UnityEngine.Vector3 CalcObject::VectorA
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___VectorA_4;
+	// UnityEngine.Vector3 CalcObject::VectorB
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___VectorB_5;
+};
+
 // UnityEngine.ProBuilder.Entity
 struct Entity_t9851DEF488BC65E2460571B50BCF374EA70A8F76  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -26280,28 +26289,52 @@ struct Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4  : public MonoBehaviour_t5
 	float ___slideTime_18;
 	// System.Boolean Move::slideEndCrouch
 	bool ___slideEndCrouch_19;
+	// UnityEngine.Vector3 Move::currentPosition
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___currentPosition_20;
+	// UnityEngine.Vector3 Move::lastPosition
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___lastPosition_21;
+	// UnityEngine.Vector3 Move::velocityVector
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___velocityVector_22;
+	// System.Single Move::playerVelocity
+	float ___playerVelocity_23;
 	// System.Single Move::crouchYMult
-	float ___crouchYMult_20;
+	float ___crouchYMult_24;
 	// System.Single Move::startYMult
-	float ___startYMult_21;
+	float ___startYMult_25;
 	// Move/MovementState Move::state
-	int32_t ___state_22;
+	int32_t ___state_26;
 	// UnityEngine.Vector3 Move::currentVelocity
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___currentVelocity_23;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___currentVelocity_27;
 	// UnityEngine.Vector3 Move::finalVelocity
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___finalVelocity_24;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___finalVelocity_28;
 	// UnityEngine.Vector3 Move::slideStartVelocity
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___slideStartVelocity_25;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___slideStartVelocity_29;
 	// UnityEngine.Transform Move::groundCheck
-	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___groundCheck_26;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___groundCheck_30;
 	// System.Single Move::groundDistance
-	float ___groundDistance_27;
+	float ___groundDistance_31;
 	// UnityEngine.LayerMask Move::groundMask
-	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___groundMask_28;
+	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___groundMask_32;
 	// UnityEngine.Vector3 Move::velocity
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___velocity_29;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___velocity_33;
 	// System.Boolean Move::isGrounded
-	bool ___isGrounded_30;
+	bool ___isGrounded_34;
+	// UnityEngine.Transform Move::wallCheck
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___wallCheck_35;
+	// System.Single Move::wallDistance
+	float ___wallDistance_36;
+	// UnityEngine.LayerMask Move::wallMask
+	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___wallMask_37;
+	// System.Boolean Move::canWallRun
+	bool ___canWallRun_38;
+	// System.Boolean Move::isWallRunning
+	bool ___isWallRunning_39;
+	// UnityEngine.Vector3 Move::wallRunVec
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___wallRunVec_40;
+	// System.Single Move::wallRunCooldown
+	float ___wallRunCooldown_41;
+	// UnityEngine.Vector3 Move::move
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___move_42;
 };
 
 // UnityEngine.ProBuilder.PolyShape
@@ -31631,18 +31664,21 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2812[1] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2814[3] = 
 {
 	static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_nTag_0)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_aValue_1)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___elist_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2819[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2819[2] = 
+{
+	static_cast<int32_t>(offsetof(CalcObject_tCD2E6B9C3A73855D749CED3B963242875EAB5AED, ___VectorA_4)),static_cast<int32_t>(offsetof(CalcObject_tCD2E6B9C3A73855D749CED3B963242875EAB5AED, ___VectorB_5)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2820[3] = 
 {
 	static_cast<int32_t>(offsetof(MouseCamera_t8B7E8E5039DBA4A55E9A91DE9F452B25DB24759C, ___mouseSensitivity_4)),static_cast<int32_t>(offsetof(MouseCamera_t8B7E8E5039DBA4A55E9A91DE9F452B25DB24759C, ___playerBody_5)),static_cast<int32_t>(offsetof(MouseCamera_t8B7E8E5039DBA4A55E9A91DE9F452B25DB24759C, ___xRotation_6)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2820[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2821[6] = 
 {
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,0,0,};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2821[27] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2822[39] = 
 {
-	static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___controller_4)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___readVelocity_5)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___speedMult_6)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___baseSpeed_7)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___speed_8)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___gravity_9)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___jumpHeight_10)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___walkMult_11)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___sprintMult_12)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___crouchMult_13)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___airStrafe_14)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___jumpAmount_15)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___timeToWait_16)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___timeToWaitInt_17)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideTime_18)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideEndCrouch_19)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___crouchYMult_20)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___startYMult_21)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___state_22)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___currentVelocity_23)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___finalVelocity_24)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideStartVelocity_25)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundCheck_26)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundDistance_27)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundMask_28)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___velocity_29)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___isGrounded_30)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2823[3] = 
+	static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___controller_4)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___readVelocity_5)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___speedMult_6)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___baseSpeed_7)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___speed_8)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___gravity_9)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___jumpHeight_10)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___walkMult_11)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___sprintMult_12)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___crouchMult_13)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___airStrafe_14)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___jumpAmount_15)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___timeToWait_16)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___timeToWaitInt_17)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideTime_18)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideEndCrouch_19)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___currentPosition_20)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___lastPosition_21)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___velocityVector_22)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___playerVelocity_23)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___crouchYMult_24)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___startYMult_25)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___state_26)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___currentVelocity_27)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___finalVelocity_28)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___slideStartVelocity_29)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundCheck_30)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundDistance_31)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___groundMask_32)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___velocity_33)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___isGrounded_34)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___wallCheck_35)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___wallDistance_36)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___wallMask_37)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___canWallRun_38)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___isWallRunning_39)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___wallRunVec_40)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___wallRunCooldown_41)),static_cast<int32_t>(offsetof(Move_t854202AD2D0D0CBADCAA68583489F1054C5BC0E4, ___move_42)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2824[3] = 
 {
 	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2828[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable2829[4] = 
 {
 	static_cast<int32_t>(sizeof(RuntimeObject)),0,0,0,};
